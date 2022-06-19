@@ -1,12 +1,19 @@
-server.port=8082
-spring.application.name=car-service
-# OracleDB connection settings
-spring.datasource.url=jdbc:oracle:thin:@localhost:1521:pruebas
-spring.datasource.username=system
-spring.datasource.password=admin
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
-
-# JPA settings
-spring.jpa.database-platform=org.hibernate.dialect.Oracle12cDialect
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=update
+spring:
+  application:
+    name: car-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8082
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:pruebas
+    username: system
+    password: admin
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  main:
+    allow-bean-definition-overriding: true
